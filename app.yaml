@@ -5,5 +5,33 @@ api_version: 1
 
 handlers:
 
-- url: /.*
+# The root goes to static/index.html
+
+- url: /
+  static_files: static/index.html
+  upload: static/index.html
+
+# All these other things go through the redirector
+
+- url: /page(.*?)
   script: redirect.py
+
+- url: /category(.*?)
+  script: redirect.py
+
+- url: /about-ben(.*?)
+  script: redirect.py
+
+- url: /employers-look-here(.*?)
+  script: redirect.py
+
+- url: /cities-in-the-sky(.*?)
+  script: redirect.py
+
+- url: /(\d\d\d\d)/(\d\d)/(.*?)
+  script: redirect.py
+
+# Anything not handed by the redirector is just in the static directory somewhere
+
+- url: /
+  static_dir: static
