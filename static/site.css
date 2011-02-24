@@ -1,0 +1,187 @@
+@import url(reset.css);
+
+body {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: #000;
+	background-color: #F1F1F1;
+	}
+
+/*p, blockquote, li {
+	font-size: 12px;
+	line-height: 1.5em;
+	color: #777;
+	}*/
+
+/*p, blockquote, ul, ol {
+	margin-bottom: 1.5em;
+	}*/
+
+ul, ol {
+	list-style-type: none;
+	}
+
+ol {
+	list-style-type: none;
+	}
+
+strong {
+	font-weight: bold;
+	}
+	
+em {
+	font-style: italic;
+	}
+
+a	{
+	text-decoration: none;
+	}
+
+a:link, a:visited {
+	color: #61cdf5;
+	}
+
+a:hover, a:active {
+	color: #1b99c8;
+	}
+
+a img	{border: none;}
+
+img { -ms-interpolation-mode:bicubic; }
+
+
+
+/*===================================================================
+ Wrapper
+===================================================================*/
+
+#wrap {
+	width: 820px;
+	margin: 1em auto;
+	text-align: left;
+	background-color: #fff;
+	border-radius: 1em;
+	}
+	
+
+/*===================================================================
+ Header
+===================================================================*/	
+
+#header {
+	width: 100%;
+	padding: 0;
+	background-color: #66CCFF;
+	/*padding-bottom: 1em;*/
+	border-radius: 1em 1em 0 0;
+	}
+
+#header h1 {
+	padding-top: 0.8em;
+	margin-bottom: 0.1em;
+	font-size: 3em;
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, sans-serif;
+	font-weight: bold;
+	text-align: center;
+	color: #fff;
+	}
+
+
+#subtitle {
+	padding: 0 0 1em 0;
+	}
+	
+#subtitle p {
+	color: #fff;
+	font-family: 'Lucida Grande', Verdana, Arial, sans-serif;
+	text-align: center;
+	}
+	
+#links {
+	padding: 1em 0 0.3em 0;
+	}
+
+#links p {
+	text-align: center;
+	color: #fff;
+	}
+
+#links p span.icon {
+	padding: 0 0.5em 0 0.5em;
+	color: #fff;
+	}
+
+#links a {
+	color: #fff;
+	}
+
+
+/*===================================================================
+ games
+===================================================================*/		
+	
+#videos, #about {
+	margin: 0 2em 0 2em;
+	}
+
+#screenshots {
+	margin: 0 1em 0 1em;
+	}
+	
+#videos h2, #about h2, #screenshots h2 {
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, sans-serif;
+	font-size: 2em;
+	font-weight: bold;
+	padding: 0.5em 0 1em 0;
+	text-align: center;
+	color: #006699;
+	}
+
+.video {
+	text-align: center;
+	}
+
+.youtube_container {
+	}
+	
+#videos p.video_description {
+	line-height: 1.5em;
+	margin-bottom: 1.5em;
+	}
+
+#about p {
+	line-height: 1.5em;
+	margin: 0 0 2em 0;
+	}
+
+#screenshots p, #videos p {
+	line-height: 1.5em;
+	text-align: center;
+	margin-bottom: 1.5em;
+	}
+
+#screenshotlist li {
+	display: inline;
+	}
+
+#screenshotlist img {
+	margin: 0.3em;
+	border: 1px solid #bbb;
+	padding: 5px;
+	background-color: #ddd;
+	}
+
+#footer {
+	margin-top: 1em;
+	width: 100%;
+	background-color: #66CCFF;
+	border-radius: 0 0 1em 1em;
+	}
+
+#footer p {
+	padding: 0.5em;
+	text-align: center;
+	}
+
+#footer p a {
+	color: #fff;
+	}
