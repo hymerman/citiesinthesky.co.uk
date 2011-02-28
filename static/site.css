@@ -37,11 +37,11 @@ a	{
 	}
 
 a:link, a:visited {
-	color: #61cdf5;
+	color: #069;
 	}
 
 a:hover, a:active {
-	color: #1b99c8;
+	color: #6cf;
 	}
 
 a img	{border: none;}
@@ -110,10 +110,13 @@ img { -ms-interpolation-mode:bicubic; }
 	color: #fff;
 	}
 
-#links a {
+#header a:link, #header a:visited {
 	color: #fff;
 	}
 
+#header a:hover, #header a:active {
+	color: #069;
+	}
 
 /*===================================================================
  games
@@ -134,6 +137,9 @@ img { -ms-interpolation-mode:bicubic; }
 	padding: 0.5em 0 1em 0;
 	text-align: center;
 	color: #006699;
+
+#videos h2 a, #about h2 a, #screenshots h2 a {
+	color: #069;
 	}
 
 .video {
@@ -182,6 +188,10 @@ img { -ms-interpolation-mode:bicubic; }
 	text-align: center;
 	}
 
-#footer p a {
+#footer a:link, #footer a:visited {
 	color: #fff;
+	}
+
+#footer a:hover, #footer a:active {
+	color: #069;
 	}
