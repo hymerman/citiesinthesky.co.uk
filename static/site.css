@@ -1,26 +1,12 @@
 @import url(reset.css);
 
 body {
-	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-family: Arial, sans-serif;
 	color: #000;
-	background-color: #F1F1F1;
+	background-color: #f1f1f1;
 	}
-
-/*p, blockquote, li {
-	font-size: 12px;
-	line-height: 1.5em;
-	color: #777;
-	}*/
-
-/*p, blockquote, ul, ol {
-	margin-bottom: 1.5em;
-	}*/
 
 ul, ol {
-	list-style-type: none;
-	}
-
-ol {
 	list-style-type: none;
 	}
 
@@ -48,12 +34,6 @@ a img	{border: none;}
 
 img { -ms-interpolation-mode:bicubic; }
 
-
-
-/*===================================================================
- Wrapper
-===================================================================*/
-
 #wrap {
 	width: 820px;
 	margin: 1em auto;
@@ -61,17 +41,11 @@ img { -ms-interpolation-mode:bicubic; }
 	background-color: #fff;
 	border-radius: 1em;
 	}
-	
-
-/*===================================================================
- Header
-===================================================================*/	
 
 #header {
 	width: 100%;
 	padding: 0;
-	background-color: #66CCFF;
-	/*padding-bottom: 1em;*/
+	background-color: #6cf;
 	border-radius: 1em 1em 0 0;
 	}
 
@@ -91,9 +65,9 @@ img { -ms-interpolation-mode:bicubic; }
 	}
 	
 #subtitle p {
-	color: #fff;
 	font-family: 'Lucida Grande', Verdana, Arial, sans-serif;
 	text-align: center;
+	color: #fff;
 	}
 	
 #links {
@@ -107,7 +81,6 @@ img { -ms-interpolation-mode:bicubic; }
 
 #links p span.icon {
 	padding: 0 0.5em 0 0.5em;
-	color: #fff;
 	}
 
 #header a:link, #header a:visited {
@@ -117,10 +90,6 @@ img { -ms-interpolation-mode:bicubic; }
 #header a:hover, #header a:active {
 	color: #069;
 	}
-
-/*===================================================================
- games
-===================================================================*/		
 	
 #videos, #about {
 	margin: 0 2em 0 2em;
@@ -129,14 +98,15 @@ img { -ms-interpolation-mode:bicubic; }
 #screenshots {
 	margin: 0 1em 0 1em;
 	}
-	
+
 #videos h2, #about h2, #screenshots h2 {
 	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, sans-serif;
 	font-size: 2em;
 	font-weight: bold;
 	padding: 0.5em 0 1em 0;
 	text-align: center;
-	color: #006699;
+	color: #069;
+	}
 
 #videos h2 a, #about h2 a, #screenshots h2 a {
 	color: #069;
@@ -149,14 +119,15 @@ img { -ms-interpolation-mode:bicubic; }
 .video_container {
 	}
 	
-#videos p.video_description {
+p.video_description {
+	font-size: 0.8em;
 	line-height: 1.5em;
 	margin-bottom: 1.5em;
 	}
 
 #about p {
 	line-height: 1.5em;
-	margin: 0 0 2em 0;
+	margin-bottom: 2em;
 	}
 
 #screenshots p, #videos p {
@@ -179,7 +150,7 @@ img { -ms-interpolation-mode:bicubic; }
 #footer {
 	margin-top: 1em;
 	width: 100%;
-	background-color: #66CCFF;
+	background-color: #6cf;
 	border-radius: 0 0 1em 1em;
 	}
 
