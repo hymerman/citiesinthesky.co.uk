@@ -61,6 +61,7 @@ def remove_trailing_forward_slash(string):
 # Replace this weird construct with one normal hyphen.
 def fix_stupid_hyphen_character(string):
 	return string.replace("-%E2%80%93-", "-")
+
 # Generates the URL to redirect to
 def get_redirect_url(url):
 	# Search the Memcache
@@ -103,6 +104,10 @@ def get_redirect_url(url):
 		elif looks_like_feed(path):
 			logging.debug("Looks like a feed")
 			result = 'http://blog.benhymers.com/feeds/atom.xml'
+
+		elif path.endswith('/comment-page-1/'):
+			logging.debug("Trimmed comment page")
+			result = 'http://blog.benhymers.com' + path[:16] + '/'
 
 		# Assume that any other path is an actual page, in which case the mapping is direct
 		else:

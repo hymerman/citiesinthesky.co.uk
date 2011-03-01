@@ -6,6 +6,7 @@ DEFAULT_URL = 'http://blog.benhymers.com/'
 
 # todo:
 # Handle /category/x/page/n properly
+# Handle cases where title got left out and just the date is left
 
 # Send email message when redirect error occurs
 ERROR_EMAIL_ACTIVE = True;
