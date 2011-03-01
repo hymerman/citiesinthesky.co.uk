@@ -42,6 +42,9 @@ def check_url_exists(url):
 
 	return result;
 
+def looks_like_feed(path):
+	return path.endswith("/feed") or path.endswith("/feed/")
+
 def remove_trailing_forward_slash(string):
 	if string[-1:] == "/":
 		return string[:-1]
@@ -84,6 +87,10 @@ def get_redirect_url(url):
 		# Even redirect to the main page; we don't want it to look like this page still exists
 		elif path.startswith('/cities-in-the-sky'):
 			result = 'http://www.citiesinthesky.co.uk'
+		# There are no per-tag feeds yet so just redirect all feeds to the main one
+		elif looks_like_feed(path):
+			logging.debug("Looks like a feed")
+			result = 'http://blog.benhymers.com/feeds/atom.xml'
 
 		# Assume that any other path is an actual page, in which case the mapping is direct
 		else:
