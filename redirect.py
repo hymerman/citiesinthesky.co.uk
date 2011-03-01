@@ -109,6 +109,10 @@ def get_redirect_url(url):
 			logging.debug("Trimmed comment page")
 			result = 'http://blog.benhymers.com' + path[:16] + '/'
 
+		elif path.endswith('/trackback/'):
+			logging.debug("Trackback URL")
+			result = 'http://blog.benhymers.com' + path[:11] + '/'
+
 		# Assume that any other path is an actual page, in which case the mapping is direct
 		else:
 			result = 'http://blog.benhymers.com' + fix_stupid_hyphen_character(remove_trailing_forward_slash(path)) + '/'
