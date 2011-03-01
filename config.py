@@ -6,7 +6,6 @@ DEFAULT_URL = 'http://blog.benhymers.com/'
 
 # todo:
 # Handle /category/x/page/n properly
-# Handle archives like /2010/06 properly
 
 # Send email message when redirect error occurs
 ERROR_EMAIL_ACTIVE = True;

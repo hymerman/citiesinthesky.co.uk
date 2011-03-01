@@ -5,6 +5,7 @@
 import webob
 import urlparse
 import logging
+import re
 
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
@@ -41,6 +42,11 @@ def check_url_exists(url):
 		memcache.set(memcachekey, result, time=config.MEMCACHE_EXPIRES_IN_SECONDS);
 
 	return result;
+
+def looks_like_archive(path):
+	if re.match("^/[\d]+/[\d]+[/]?$", path) is None:
+		return False
+	return True
 
 def looks_like_feed(path):
 	return path.endswith("/feed") or path.endswith("/feed/")
@@ -87,6 +93,12 @@ def get_redirect_url(url):
 		# Even redirect to the main page; we don't want it to look like this page still exists
 		elif path.startswith('/cities-in-the-sky'):
 			result = 'http://www.citiesinthesky.co.uk'
+
+		# Unfortunately there are no archive pages in bloggart just yet, so redirect to the main page
+		elif looks_like_archive(path):
+			logging.debug("Looks like an archive page")
+			result = 'http://blog.benhymers.com/archive/'
+
 		# There are no per-tag feeds yet so just redirect all feeds to the main one
 		elif looks_like_feed(path):
 			logging.debug("Looks like a feed")
