@@ -48,6 +48,10 @@ def remove_trailing_forward_slash(string):
 
 	return string
 
+# Wordpress liked to surround a typographic hyphen with two other hyphens.
+# Replace this weird construct with one normal hyphen.
+def fix_stupid_hyphen_character(string):
+	return string.replace("-%E2%80%93-", "-")
 # Generates the URL to redirect to
 def get_redirect_url(url):
 	# Search the Memcache
@@ -82,9 +86,8 @@ def get_redirect_url(url):
 			result = 'http://www.citiesinthesky.co.uk'
 
 		# Assume that any other path is an actual page, in which case the mapping is direct
-		# Forget about the hyphen character issue for now since it's confusing
 		else:
-			result = 'http://blog.benhymers.com' + remove_trailing_forward_slash(path) + '/'
+			result = 'http://blog.benhymers.com' + fix_stupid_hyphen_character(remove_trailing_forward_slash(path)) + '/'
 
 		# Store the result in Memcache for config.MEMCACHE_EXPIRES_IN_SECONDS
 		memcache.set(memcachekey, result, time=config.MEMCACHE_EXPIRES_IN_SECONDS)
