@@ -31,7 +31,7 @@ handlers:
 - url: /(\d\d\d\d)/(\d\d)/(.*?)
   script: redirect.py
 
-- url: /feed/
+- url: /feed(.*?)
   script: redirect.py
 
 # Anything not handed by the redirector is just in the static directory somewhere
