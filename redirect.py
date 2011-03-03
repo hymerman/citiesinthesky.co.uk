@@ -80,6 +80,7 @@ def get_redirect_url(url):
 
 		# Check for /page/n
 		if path.startswith('/page'):
+			logging.debug("Found page URL")
 			result = 'http://blog.benhymers.com' + remove_trailing_forward_slash(path)
 
 		# There are no per-tag feeds yet so just redirect all feeds to the main one
@@ -92,30 +93,34 @@ def get_redirect_url(url):
 		# Take everything from the 10th character (after /category/)
 		# Ignore /category/x/page/n since it's hard and nobody really visits it anyway...
 		elif path.startswith('/category'):
+			logging.debug("Found category URL")
 			result = 'http://blog.benhymers.com/tag/' + remove_trailing_forward_slash(path[10:])
 
 		elif path.startswith('/about-ben') or path.startswith('/employers-look-here'):
+			logging.debug("Found about-ben or employers-look-here page URL")
 			result = 'http://www.benhymers.com'
 
 		# Even redirect to the main page; we don't want it to look like this page still exists
 		elif path.startswith('/cities-in-the-sky'):
+			logging.debug("Found cities-in-the-sky page URL")
 			result = 'http://www.citiesinthesky.co.uk'
 
 		# Unfortunately there are no archive pages in bloggart just yet, so redirect to the main page
 		elif looks_like_archive(path):
-			logging.debug("Looks like an archive page")
+			logging.debug("Found archive page URL")
 			result = 'http://blog.benhymers.com/archive/'
 
 		elif path.endswith('/comment-page-1/'):
-			logging.debug("Trimmed comment page")
+			logging.debug("Found Comment page URL")
 			result = 'http://blog.benhymers.com' + path[:-16] + '/'
 
 		elif path.endswith('/trackback/'):
-			logging.debug("Trackback URL")
+			logging.debug("Found Trackback URL")
 			result = 'http://blog.benhymers.com' + path[:-11] + '/'
 
 		# Assume that any other path is an actual page, in which case the mapping is direct
 		else:
+			logging.debug("Found some other URL")
 			result = 'http://blog.benhymers.com' + fix_stupid_hyphen_character(remove_trailing_forward_slash(path)) + '/'
 
 		# Store the result in Memcache for config.MEMCACHE_EXPIRES_IN_SECONDS
@@ -129,6 +134,8 @@ class MainHandler(webapp.RequestHandler):
 	def get(self):
 		# Perform redirect
 		url = get_redirect_url(self.request.url);
+
+		logging.info("Attempting to redirect URL '%s' to URL '%s'" % (self.request.url, url) );
 
 		# Check that we were able to build a URL and that this URL actually exists
 		if url and (check_url_exists(url) if config.CHECK_URL_EXISTANCE else True):
