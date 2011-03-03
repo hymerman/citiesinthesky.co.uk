@@ -82,6 +82,12 @@ def get_redirect_url(url):
 		if path.startswith('/page'):
 			result = 'http://blog.benhymers.com' + remove_trailing_forward_slash(path)
 
+		# There are no per-tag feeds yet so just redirect all feeds to the main one
+		# Do this before checking for categories since categories can have feeds
+		elif looks_like_feed(path):
+			logging.debug("Found feed URL")
+			result = 'http://blog.benhymers.com/feeds/atom.xml'
+
 		# Check for /category/x
 		# Take everything from the 10th character (after /category/)
 		# Ignore /category/x/page/n since it's hard and nobody really visits it anyway...
@@ -99,11 +105,6 @@ def get_redirect_url(url):
 		elif looks_like_archive(path):
 			logging.debug("Looks like an archive page")
 			result = 'http://blog.benhymers.com/archive/'
-
-		# There are no per-tag feeds yet so just redirect all feeds to the main one
-		elif looks_like_feed(path):
-			logging.debug("Looks like a feed")
-			result = 'http://blog.benhymers.com/feeds/atom.xml'
 
 		elif path.endswith('/comment-page-1/'):
 			logging.debug("Trimmed comment page")
