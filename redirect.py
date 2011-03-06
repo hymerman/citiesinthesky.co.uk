@@ -78,8 +78,12 @@ def get_redirect_url(url):
 		if path == '':
 			path = '/'
 
+		if path == '/2010/03/02/another-fresh-start-but-not-here/'
+			logging.debug("Found last post from blog, not migrated, so redirecting to root")
+			result = 'http://blog.benhymers.com'
+
 		# Check for /page/n
-		if path.startswith('/page'):
+		elif path.startswith('/page'):
 			logging.debug("Found page URL")
 			result = 'http://blog.benhymers.com' + remove_trailing_forward_slash(path)
 
