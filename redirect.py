@@ -116,11 +116,11 @@ def get_redirect_url(url):
 
 		elif path.endswith('/comment-page-1/'):
 			logging.debug("Found Comment page URL")
-			result = 'http://blog.benhymers.com' + path[:-16] + '/'
+			result = 'http://blog.benhymers.com' + fix_stupid_hyphen_character(path[:-16]) + '/'
 
 		elif path.endswith('/trackback/'):
 			logging.debug("Found Trackback URL")
-			result = 'http://blog.benhymers.com' + path[:-11] + '/'
+			result = 'http://blog.benhymers.com' + fix_stupid_hyphen_character(path[:-11]) + '/'
 
 		# Assume that any other path is an actual page, in which case the mapping is direct
 		else:
