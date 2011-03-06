@@ -48,6 +48,11 @@ def looks_like_archive(path):
 		return False
 	return True
 
+def looks_like_post_without_title(path):
+	if re.match("^/[\d]+/[\d]+/[\d]+[/]?$", path) is None:
+		return False
+	return True
+
 def looks_like_feed(path):
 	return path.endswith("/feed") or path.endswith("/feed/")
 
@@ -121,6 +126,10 @@ def get_redirect_url(url):
 		elif path.endswith('/trackback/'):
 			logging.debug("Found Trackback URL")
 			result = 'http://blog.benhymers.com' + fix_stupid_hyphen_character(path[:-11]) + '/'
+
+		elif looks_like_post_without_title(path):
+			logging.warning("Found path in nn/nn/nn format, can't redirect!")
+			result = 'http://blog.benhymers.com'
 
 		# Assume that any other path is an actual page, in which case the mapping is direct
 		else:
