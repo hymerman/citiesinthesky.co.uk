@@ -83,7 +83,7 @@ def get_redirect_url(url):
 		if path == '':
 			path = '/'
 
-		if path == '/2010/03/02/another-fresh-start-but-not-here/'
+		if path == '/2010/03/02/another-fresh-start-but-not-here/':
 			logging.debug("Found last post from blog, not migrated, so redirecting to root")
 			result = 'http://blog.benhymers.com'
 
