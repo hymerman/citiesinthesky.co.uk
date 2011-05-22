@@ -44,9 +44,11 @@ def check_url_exists(url):
 	return result;
 
 def looks_like_archive(path):
-	if re.match("^/[\d]+/[\d]+[/]?$", path) is None:
-		return False
-	return True
+	if re.match("^/[\d]+/[\d]+[/]?$", path) is not None:
+		return True
+	if re.match("^/[\d]+/[\d]+/page/[\d]+/?$", path) is not None:
+		return True
+	return False
 
 def looks_like_post_without_title(path):
 	if re.match("^/[\d]+/[\d]+/[\d]+[/]?$", path) is None:
