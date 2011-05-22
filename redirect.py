@@ -74,8 +74,9 @@ def remove_trailing_stuff_after_first_forward_slash(string):
 # Wordpress liked to surround a typographic hyphen with two other hyphens.
 # Replace this weird construct with one normal hyphen.
 # Also replace '%5Cpar' which wordpress oddly put on one URL.
+# Finally, also replace the really messed up double percent encoded URL with just the hyphen/
 def fix_stupid_hyphen_character(string):
-	return string.replace("-%E2%80%93-", "-").replace("%5Cpar", "")
+	return string.replace("-%E2%80%93-", "-").replace("%5Cpar", "").replace("-%25E2%2580%2593-", "-")
 
 # Generates the URL to redirect to
 def get_redirect_url(url):
