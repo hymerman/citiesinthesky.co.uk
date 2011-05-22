@@ -62,6 +62,13 @@ def remove_trailing_forward_slash(string):
 
 	return string
 
+def remove_trailing_stuff_after_first_forward_slash(string):
+	index = string.find("/")
+
+	if index == -1:
+		return string
+	return string[0:index]
+
 # Wordpress liked to surround a typographic hyphen with two other hyphens.
 # Replace this weird construct with one normal hyphen.
 # Also replace '%5Cpar' which wordpress oddly put on one URL.
@@ -101,10 +108,10 @@ def get_redirect_url(url):
 
 		# Check for /category/x
 		# Take everything from the 10th character (after /category/)
-		# Ignore /category/x/page/n since it's hard and nobody really visits it anyway...
+		# Remove everything after the first forward slash in the category, since we don't support pages etc.
 		elif path.startswith('/category'):
 			logging.debug("Found category URL")
-			result = 'http://blog.benhymers.com/tag/' + remove_trailing_forward_slash(path[10:])
+			result = 'http://blog.benhymers.com/tag/' + remove_trailing_stuff_after_first_forward_slash(path[10:])
 
 		elif path.startswith('/about-ben') or path.startswith('/employers-look-here'):
 			logging.debug("Found about-ben or employers-look-here page URL")
