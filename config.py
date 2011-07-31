@@ -15,7 +15,7 @@ ERROR_EMAIL_SUBJECT = 'Redirect Script Error';
 ERROR_EMAIL_BODY = 'Unable to redirect this url: ';
 
 # Check if the destination URL exists BEFORE redirecting
-CHECK_URL_EXISTANCE = True;
+CHECK_URL_EXISTANCE = False;
 
 # Memcache redirection results
 MEMCACHE_ACTIVE = True;
